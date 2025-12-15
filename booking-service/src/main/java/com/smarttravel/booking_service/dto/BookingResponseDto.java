@@ -33,7 +33,6 @@ public class BookingResponseDto {
         this.status = status;
     }
 
-    // Getters
 
     public Long getId() {
         return id;
