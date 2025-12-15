@@ -21,21 +21,20 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    // Create booking (this drives the whole communication flow)
+
     @PostMapping
     public ResponseEntity<BookingResponseDto> createBooking(@Valid @RequestBody BookingRequestDto requestDto) {
         BookingResponseDto response = bookingService.createBooking(requestDto);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    // Get booking by id
+
     @GetMapping("/{id}")
     public ResponseEntity<BookingResponseDto> getBookingById(@PathVariable Long id) {
         BookingResponseDto response = bookingService.getBookingById(id);
         return ResponseEntity.ok(response);
     }
 
-    // Endpoint for Payment Service → Booking Service (WebClient) to update status
     @PutMapping("/{id}/status")
     public ResponseEntity<BookingResponseDto> updateBookingStatus(@PathVariable Long id,
                                                                   @RequestParam("status") BookingStatus status) {
@@ -43,7 +42,7 @@ public class BookingController {
         return ResponseEntity.ok(response);
     }
 
-    // Get all bookings
+
     @GetMapping
     public ResponseEntity<List<BookingResponseDto>> getAllBookings() {
         List<BookingResponseDto> bookings = bookingService.getAllBookings();
