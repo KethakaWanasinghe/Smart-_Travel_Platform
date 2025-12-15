@@ -18,10 +18,7 @@ public class BookingRequestDto {
     @Min(1)
     private Long hotelId;
 
-    /**
-     * Travel date in ISO format: yyyy-MM-dd
-     * Example: "2025-01-10"
-     */
+
     @NotNull
     @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "travelDate must be in format yyyy-MM-dd")
     private String travelDate;
@@ -54,7 +51,6 @@ public class BookingRequestDto {
         return travelDate;
     }
 
-    // Setters
 
     public void setUserId(Long userId) {
         this.userId = userId;
